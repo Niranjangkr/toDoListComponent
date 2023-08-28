@@ -61,14 +61,23 @@
 
 .stepper::before {
     content: '';
-    background-color: rgba(0,0,0,.14);
+    background-color: gray; /* Initial color */
     position: absolute;
     width: 4px;
-    height: calc(100% - 2.5rem); 
-    top: 2.5rem; 
-    left: 50%; 
+    height: 100%; /* Full height */
+    top: 2.5rem;
+    left: 50%;
     transform: translateX(-50%);
+    z-index: -1; /* Move the line behind other elements */
+    transition: background-color 0.3s; /* Add a transition for smooth color change */
 }
+
+
+.stepper::before {
+    background: linear-gradient(to bottom, orange 0%, orange var(--progress), gray var(--progress), gray 100%);
+}
+
+
 
 .codeIcon{
     transform: rotate(90deg);
@@ -90,9 +99,6 @@
 
 .container{
     width: 400px;
-}
-
-.textbox{
 }
 
 .text-li{

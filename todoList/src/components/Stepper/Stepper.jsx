@@ -35,9 +35,11 @@ const Stepper = () => {
     //     }
     // }, [currentStep]);
 
+    const progressPercentage = ((currentStep - 1) / (steps.length - 1)) * 100;
+
     return (
         <>
-            <div className='stepper' >
+           <div className={`stepper`} style={{'--progress': `${progressPercentage}%`}}>
                 <div className='video'  ref={videoRef} controls >
                     <video ref={videoRef} muted>
                         <source src="complexity-video.mp4" type="video/mp4" />
