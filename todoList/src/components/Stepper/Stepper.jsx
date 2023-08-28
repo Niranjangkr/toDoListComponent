@@ -58,7 +58,7 @@ const Stepper = () => {
                     {
                         steps.map((step, i) => (
                             <div key={i}>
-                                <div className={`step-item active`} key={i}>
+                                <div className={`step-item`} key={i}>
                                     <div className='stop' style={{ visibility: currentStep === i + 1 ? 'visible' : 'hidden' }}><CodeIcon htmlColor='white' className='codeIcon' /></div>
                                     
                                     <div style={{ visibility: currentStep === i + 1 ? 'hidden' : 'visible', backgroundColor:currentStep > i + 1 ? 'orange' : ''}} className='stop-empty'></div>
