@@ -1,13 +1,13 @@
 .stepper {
+    margin-right: 144px;
+}
+
+.timeline{
     width: 100vw;
     margin: auto;
     height: 299px;
     position: relative; 
     display: flex;
-}
-
-.timeline{
-    margin-right: 144px;
 }
 
 .step-item {

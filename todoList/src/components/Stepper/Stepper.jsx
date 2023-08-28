@@ -5,8 +5,9 @@ import Content from './Content';
 
 const Stepper = () => {
     const steps = ['Ease', 'Organize', 'Delegate', 'Customize'];
-    const [currentStep, setCurrentStep] = useState(3)
+    const [currentStep, setCurrentStep] = useState(1)
     const videoRef = React.createRef();
+    const videoContainerRef = React.createRef();
 
     useEffect(() => {
         const handleScroll = (event) => {
@@ -24,33 +25,42 @@ const Stepper = () => {
         };
     }, []);
 
-    // useEffect(() => {
-    //     if (videoRef.current) {
-    //         videoRef.current.currentTime = currentStep * 5; 
-    //         if (currentStep === 0) {
-    //             videoRef.current.pause();
-    //         } else {
-    //             videoRef.current.play();
-    //         }
-    //     }
-    // }, [currentStep]);
+    useEffect(() => {
+        if (videoRef.current && videoContainerRef.current) {
+            const desiredTime = currentStep - 1; 
+            videoRef.current.currentTime = desiredTime;
+            if (currentStep === 0) {
+                videoRef.current.pause();
+            } else {
+                videoRef.current.play();
+                videoRef.current.addEventListener('timeupdate', () => {
+                    if (videoRef.current.currentTime >= desiredTime + 1) {
+                        videoRef.current.pause();
+                    }
+                });
+            }
+        }
+    }, [currentStep]);
+    
+    
 
     const progressPercentage = ((currentStep - 1) / (steps.length - 1)) * 100;
 
     return (
         <>
-           <div className={`stepper`} style={{'--progress': `${progressPercentage}%`}}>
-                <div className='video'  ref={videoRef} controls >
+           <div className='timeline'>
+                <div className='video'  ref={videoContainerRef} controls >
                     <video ref={videoRef} muted>
                         <source src="complexity-video.mp4" type="video/mp4" />
                     </video>
                 </div>
-                <div className='timeline'>
+                <div className={`stepper`} style={{'--progress': `${progressPercentage}%`}}>
                     {
                         steps.map((step, i) => (
                             <div key={i}>
                                 <div className={`step-item active`} key={i}>
                                     <div className='stop' style={{ visibility: currentStep === i + 1 ? 'visible' : 'hidden' }}><CodeIcon htmlColor='white' className='codeIcon' /></div>
+                                    
                                     <div style={{ visibility: currentStep === i + 1 ? 'hidden' : 'visible', backgroundColor:currentStep > i + 1 ? 'orange' : ''}} className='stop-empty'></div>
                                     <p className='tag' style={{ visibility: currentStep === i + 1 ? 'visible' : 'hidden' }}>{step}</p>
                                 </div>
