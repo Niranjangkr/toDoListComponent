@@ -54,11 +54,11 @@ const Stepper = () => {
                         <source src="complexity-video.mp4" type="video/mp4" />
                     </video>
                 </div>
-                <div className={`stepper`} style={{'--progress': `${progressPercentage}%`}}>
+                <div className={`stepper`} >
                     {
                         steps.map((step, i) => (
                             <div key={i}>
-                                <div className={`step-item`} key={i}>
+                                <div className={`step-item`} style={{'--progress': `${progressPercentage}%`}} key={i}>
                                     <div className='stop' style={{ visibility: currentStep === i + 1 ? 'visible' : 'hidden' }}><CodeIcon htmlColor='white' className='codeIcon' /></div>
                                     
                                     <div style={{ visibility: currentStep === i + 1 ? 'hidden' : 'visible', backgroundColor:currentStep > i + 1 ? 'orange' : ''}} className='stop-empty'></div>
