@@ -28,6 +28,8 @@
     padding: 5px;
     color: white;
     border-radius: 5px;
+    position: relative;
+    left: 182px;
 }
 
 .stop{
@@ -121,6 +123,7 @@
     height: 440px;
     position: relative;
     left: 222px;
+    z-index: -2;
 }
 video{
     width: 380px;
