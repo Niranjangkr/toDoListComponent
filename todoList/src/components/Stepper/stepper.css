@@ -1,0 +1,128 @@
+.stepper {
+    width: 100vw;
+    margin: auto;
+    height: 299px;
+    position: relative; 
+    display: flex;
+}
+
+.timeline{
+    margin-right: 144px;
+}
+
+.step-item {
+    width: 140px;
+    /* background-color: rgb(209, 182, 182); */
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 18px;
+    
+}
+
+.tag{
+    background-color: gray;
+    width: 80px;
+    text-align: end;
+    padding: 5px;
+    color: white;
+    border-radius: 5px;
+}
+
+.stop{
+    width: 2.5rem;
+    height: 2.5rem;
+    z-index: 10;
+    position: relative;
+    background-color: #ee5244;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 11.3rem;
+}
+
+.stop-empty{
+    width: 0.7rem;
+    height: 0.7rem;
+    z-index: 10;
+    position: relative;
+    border: 2px solid rgba(0,0,0,.14);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 12.9rem;
+    background-color: white ;
+}
+
+.stepper::before {
+    content: '';
+    background-color: rgba(0,0,0,.14);
+    position: absolute;
+    width: 4px;
+    height: calc(100% - 2.5rem); 
+    top: 2.5rem; 
+    left: 50%; 
+    transform: translateX(-50%);
+}
+
+.codeIcon{
+    transform: rotate(90deg);
+}
+
+
+/* text */
+
+.task{
+    position: relative;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    left: 100px;
+    margin-top: 1.2rem;
+}
+
+.container{
+    width: 400px;
+}
+
+.textbox{
+}
+
+.text-li{
+    list-style: none;
+    display: flex;
+    align-items: center;
+
+}
+
+.icon{
+    margin-right: 9px;
+}
+
+.text-li {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.text-li svg {
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.video{
+    width: 440px;
+    height: 440px;
+    position: relative;
+    left: 222px;
+}
+video{
+    width: 380px;
+    height: 380px;
+}
