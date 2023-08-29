@@ -74,10 +74,8 @@
     z-index: -1;
     transition: background-color 0.3s; 
 }
-
-.step-item {
-    background: linear-gradient(to bottom, orange 0%, orange var(--progress), gray var(--progress), gray 100%);
-    background-size: 100% 100%;
+.complete{
+    background-color: orange    ; 
 }
 
 
